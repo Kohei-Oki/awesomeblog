@@ -1,0 +1,44 @@
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Awesome Blog</title>
+  </head>
+  <body>
+    <% if logged_in? %>
+      <div class="row">
+        <aside class="col-md-4">
+          <section class="user_info">
+            <%= render 'shared/user_info' %>
+          </section>
+          <section class="micropost_form">
+            <%= render 'shared/stats' %>
+          </section>
+          <section class="micropost_form">
+            <%= render 'shared/micropost_form' %>
+          </section>
+        </aside>
+        <div class="col-md-8">
+          <h3>Micropost Feed</h3>
+          <%= render 'shared/feed' %>
+        </div>
+      </div>
+    <% else %>
+
+<div class="center jumbotron">
+  <h1>Awesome Blog App</h1>
+
+  <p>
+    This is the home page for the Awesome Blog.
+    <br>
+    This is a project under the <a href="https://kredo.jp/">Kredo Japan</a> and <a href="http://framgia.ph/">Framgia Philippines</a> training.
+  </p>
+</div>
+
+<%= link_to image_tag("IMG_3005.jpg", alt:"KREDO Logo"), "http://kredo.jp/" %>
+
+<%= link_to image_tag("IMG_3093.jpg", alt:"FRAMGIA Logo"), "http://framgia.ph/" %>
+
+<% end %>
+</body>
+</html>
