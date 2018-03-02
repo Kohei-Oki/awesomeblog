@@ -18,6 +18,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :micropost do
+    member do
+      get :upvote, :downvote
+    end
+  end
+
+
+  resources :votes, only: [:create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :microposts,  only: [:create, :destroy]
